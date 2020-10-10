@@ -30,16 +30,20 @@
 
                 <div id="ipCalc">
                     <h4>IP Calculate:</h4>
-                    <span id="ip_bin">　</span>
+                    <div id="ip_bin">　</div>
                     <span>　←　IP</span>
                     <br>
-                    <span id="cidr_bin_copy">　</span>
+                    <div id="cidr_bin_copy">　</div>
                     <span>　←　Subnet mask</span>
                     <br>
 
 
                     <span id="networkPart" style="color: red;"></span><!--
                     --><span id="hostPart" style="color: lightseagreen;"></span>
+                    <div id="addrwidth">
+                      <div style="color: red;float:left">NW part</div><!--
+                   --><div style="color: lightseagreen;text-align: right">Host part</div>
+                    </div>
                    
                     <br><br>
                     <span id="networkAddr"></span><span>　←　Network Address</span><br>
@@ -192,6 +196,8 @@
             }
 
             OUT_hostPart.innerText = _hostInner;
+            console.log(document.getElementById("ip_bin").clientWidth);
+			document.getElementById("addrwidth").style.width = document.getElementById("ip_bin").clientWidth;
         }
         
         // Calculate network addr & broadcast addr
